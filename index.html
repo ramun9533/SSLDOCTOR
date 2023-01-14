@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="static/style2.css">
+
+    <title>TLS/SSL Test Portal</title>
+</head>
+
+<body class="bg-dark text-white">
+    <div><img id="logo" src="img/qualys-ssl-labs-logo.png"></div>
+    <div class="container">
+
+
+        <div class="py-5 text-center">
+            <h1>TLS/SSL Test Portal</h1>
+        </div>
+
+
+
+        <form method="POST"
+            onsubmit="$('#spinner').show(); $('#button-label').hide(); $('#submit').prop('disabled', true);">
+            <div class="row">
+                <div class="mb-3 col-lg-6 col-sm-12">
+                    <label for="host">Host</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="host" class="form-control" id="host" placeholder="www.example.org"
+                            value="" required="" spellcheck="false" autocorrect="off" autocapitalize="none"
+                            autocomplete="off" inputmode="url">
+                        <span class="input-group-append input-group-prepend input-group-text rounded-0">:</span>
+                        <input type="number" name="port" class="form-control col-2" id="port" min="0" max="65535"
+                            value="443" required="" inputmode="numeric">
+                    </div>
+                </div>
+
+                <div class="mb-3 col-lg-6 col-sm-12">
+                    <label for="protocol">StartTLS</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <input type="checkbox" class="checkbox" name="starttls" value="yes" class="form-control"
+                                    onchange="$('#protocol').prop('disabled', !this.checked);">
+                            </div>
+                        </div>
+                        <select name="protocol" id="protocol" class="form-control" disabled>
+                            <!--<option value="" selected disabled hidden>StartTLS-Protocol</option>-->
+                            <option value="" selected disabled hidden>SMTP</option>
+                            <option value="smtp">SMTP</option>
+                            <option value="ldap">LDAP</option>
+                            <option value="pop3">POP3</option>
+                            <option value="imap">IMAP</option>
+                            <option value="ftp">FTP</option>
+                            <option value="lmtp">LMTP</option>
+                            <option value="nntp">NNTP</option>
+                            <option value="postgres">PostgreSQL</option>
+                            <option value="mysql">MySQL</option>
+                            <option value="xmpp">XMPP</option>
+                            <option value="xmpp-server">XMPP-Server</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <button id="submit" class="btn btn-secondary btn-lg btn-block" type="submit">
+                <span class="spinner-border m-n1" id="spinner" role="status" aria-hidden="true"
+                    style="display: none;"></span>
+                <span id="button-label">Perform SSL Check</span>
+            </button>
+        </form>
+        <!-- <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+</div>
+
+
+    </div>-->
+        <div class="centrado">
+            <div class="lds-spinner">
+            <!--<div class="lds-roller"> -->
+            <!-- <div class="lds-ring"> -->
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <!-- <footer class="my-5 pt-5 text-muted text-center text-small d-print-none">
+                </footer> -->
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+            integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
+        </script>
+        <script src="js/javascript-file.js"></script>
+
+</body>
+
+</html>
