@@ -1,0 +1,52 @@
+.logo {
+  box-align:initial;
+  width: 200px;
+  height: 20px;
+  margin-top: 10px;
+}
+.centrado{
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  font-family: 'lato';
+  font-size: 16px;
+}
+.py-5{
+  color: #ced4da;
+}
+.protocolo{
+
+background-color: #f79d65;
+width: 150px;
+height: 40px;
+position:relative;
+top: 0px;
+left: 625px;
+margin: 1px;
+}
+.inp_position{
+  width: 15px;
+  height: 15px;
+  position:absolute;
+  top: 0px;
+  left: 620px;
+
+}
+.dos-puntos{
+  color: #212529;
+  background: #ced4da;
+  padding: 3px;
+  margin: 0px;
+  width: 6px;
+  height: 40px;
+  position:absolute;
+  top: 0px;
+  left: 535px;
+}
+.position-label{
+  top: -35px;
+  position:absolute;
+  left: 670px;
+  padding: 2px;
+  margin: 0px;
+}

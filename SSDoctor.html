@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=640, initial-scale=.5, user-scalable=no">
+    <meta name="description" content="Servicio de chequeo y análisis avanzado de los registros DNS de tu dominio para un funcionamiento óptimo.">
+    <meta name="author" content="24x7 Operations">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SSL doctor - limpia, fija y da esplendor a tus servidores de nombres</title>
+
+    <link rel="shortcut icon" type="image/png" href="https://dns.doctor/images/favicon.png">
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="bootstrap.min.css"integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<!-- mi estilo-->
+<link href="style.css" rel="stylesheet">
+<link href="style1.css" rel="stylesheet">
+<link href="roller.css" rel="stylesheet">
+ <!-- Custom styles for this template -->
+ <link href="main.css" rel="stylesheet">
+    <!-- <link href="font-awesome.min.css" rel="stylesheet"> -->
+
+    <script src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	$("#analyze").submit(function() {
+    		$.ajax({
+    			type: "POST",
+    			url: "https://ssl.doctor/",
+    			data: $("#analyze").serialize(),
+    			success: function(data){
+    			if(data == ""){
+
+    				alert("¡Introduzca un dominio válido!");
+
+    			}else{
+
+    				location = "https://dns.doctor/site/"+data;
+
+    			}
+
+    			}
+    		});
+
+    		return false;
+    	});
+
+    });
+    </script>
+
+    <script src="chart.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> -->
+		  
+		  <div><img class="logo" src="qualys-ssl-labs-logo.png" style="" alt="SSL.DOCTOR"></div>  
+        </div>
+		
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="https://ssl.doctor/">Contactar</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+	<div id="hello">
+	    <div class="container">
+			<div class="container">
+
+
+				<div  class="text-center">
+					<h1 > <p class="py-5">TLS/SSL Test Portal</p></h1>
+				</div>
+		
+		
+		
+				<form method="POST"onsubmit="$('#spinner').show(); $('#button-label').hide(); $('#submit').prop('disabled', true);">
+					<div class="">
+						<div class="">
+							<label class="inputs-barra" for="host">Host</label>
+							<div class="input-group">
+								
+								<input type="text" name="host" class="host" id="host" placeholder="www.example.org"value="" required="" spellcheck="false" autocorrect="off" autocapitalize="none" autocomplete="off" inputmode="url">
+							<span class="dos-puntos">:</span>
+							
+							
+							<input type="number" name="port" class="num-input" id="port" min="0" max="65535"value="443" required="" inputmode="numeric">
+							<label class="position-label" for="">StartTLS</label>
+							
+							<input type="checkbox" class="inp_position" name="starttls" value="yes" class=""onchange="$('#protocol').prop('disabled', !this.checked);">
+								</div>
+									
+					     </div>
+						 <div class="mb-3 col-lg-6 col-sm-12">
+							
+							<div class="input-group">
+								
+								<div class="input-group-prepend">
+									
+									<div class="input-group-text">
+										
+											
+											<select name="" id="" class="protocolo" >
+												<!--<option value="" selected disabled hidden>StartTLS-Protocol</option>-->
+												<option value="" selected disabled hidden>SMTP</option>
+												<option value="smtp">SMTP</option>
+												<option value="ldap">LDAP</option>
+												<option value="pop3">POP3</option>
+												<option value="imap">IMAP</option>
+												<option value="ftp">FTP</option>
+												<option value="lmtp">LMTP</option>
+												<option value="nntp">NNTP</option>
+												<option value="postgres">PostgreSQL</option>
+												<option value="mysql">MySQL</option>
+												<option value="xmpp">XMPP</option>
+												<option value="xmpp-server">XMPP-Server</option>
+											</select>
+										</div>
+				    </div>
+		
+					
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="perform">
+						
+					<button id="submit" class="btn btn-block" type="submit">
+						<span class="spinner-border m-n1" id="spinner" role="status" aria-hidden="true"
+							style="display: none;"></span>
+						<span id="">Perform SSL Check</span>
+					</button>
+					</div>
+				</form>
+				
+				<div class="servidores">
+				<div class="col-lg-8 col-lg-offset-1 centered">
+					<h3 class="servidores-color">Qué son los servidores de nombres (DNS)</h3>
+					<p align="left" class="servidores-color">Los servidores de nombres, o Domain Name Servers 
+(DNS) en inglés son los servidores de nombres autoritativos para un 
+nombre de dominio. Por ejemplo, son los que indican que nuestra web, 
+ubicada en un servidor determinado, con tal IP, equivale a un 
+determinado nombre de dominio.</p>
+					<p align="left" class="servidores-color">Gracias a nuestra herramienta de chequeo y 
+validación de configuración de servidores de nombres, podemos comprobar 
+que la configuración de los servidores de nombres es correcta y no 
+presentan un error.</p>
+
+				</div>
+			</div>
+			
+		<div class="contact">
+			<div class="lds-roller">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+
+	    		</div><!-- /col-lg-8 -->
+				
+	    	</div><!-- /row -->
+	    </div> <!-- /container -->
+		
+	</div><!-- /hello -->
+	
+
+	<div class="container">
+		<div class="row centered mt ">
+			<h3 class="servicios">Otros servicios y herramientas de interés</h3>
+			<div class="mt"></div>
+			<div class="col-lg-4">
+				<a href="https://queipuso.com/"><img src="queipuso-logo.png" alt="Qué IP uso" ;="" height="50px"></a>
+			</div>
+			<div class="col-lg-4">
+				<a href="https://getrandom.pw/"><img src="random-logo.png" alt="Get Random Password" ;="" width="300px"></a>
+			</div>
+			<div class="">
+				<a href="https://www.ventusky.com/"><img class="logotipo-tecnologico" src="logotipo-tecnologico.svg" ></a>
+			</div>
+		</div>
+		<div class="mt"></div>
+			<div class="col-lg-4">
+				<a href="https://http2.es/"><img src="" alt="-" ;="" height="50px"></a>
+			</div>
+			<div class="col-lg-4">
+				<a href="#"><img src="" alt="-" ;="" width="300px"></a>
+			</div>
+			<div class="col-lg-4">
+				<a href="https://dns.doctor/%C2%B7"><img src="" alt="-" ;="" width="300px"></a>
+			</div>
+			
+		<p></p>
+
+
+	</div> 
+	
+
+
+	<section id=""></section>
+	
+
+	<div id="" class="referencias">
+		<div class="container">
+			<div class="row">
+				<p class=" servidores-color"> Creado  <i class="fa fa-heart"></i> por <a style="color:white; text-decoration:none" href="https://ssl.doctor/">clarito.com</a></p>
+			</div>
+		</div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap.js"></script>
+  
+
+</body></html>

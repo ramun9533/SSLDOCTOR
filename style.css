@@ -1,0 +1,70 @@
+.perform{
+    width: 250px;
+    height: 100px;
+    position:absolute;
+    top: 350px;
+    left: 550px;
+    
+} 
+.servicios {
+    color: orangered;
+    text-align: center;
+    
+}
+.num-input{
+    width: 70px;
+    height: 40px;
+    position:absolute;
+    top: 0px;
+    left: 545px;
+}
+.host{
+    width: 350px;
+    height: 40px;
+    position:absolute;
+    top: 0px;
+    left: 180px;
+    display: flex;
+}
+.inputs-barra{
+    position:relative;
+    width: 100px;
+    top: 0px;
+    left: 350px
+}
+.logotipo-tecnologico{
+    width: 52px;
+    height: 51px;
+}
+.separador{
+    border: 2px #555 solid;
+    width: 8%;
+    height: 8%;
+    position:fixed;
+    
+    
+}
+.servidores
+{
+    margin: 15%;
+    position: relative;
+    left: 7%;
+    padding-top: 5%;
+}
+.servidores-color{
+    -webkit-text-fill-color: azure;
+}
+.contact{
+    background: ;
+    position:absolute;
+    top: 435px; left: 640px;
+    width: 100px;
+    height: 100px;
+
+}
+.referencias{
+    background-color: blueviolet;
+}
+.contenedor{
+    position:static;
+}
